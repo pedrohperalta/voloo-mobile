@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableHighlight, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet } from 'react-native'
 import { Images } from '../../constants'
+import ActionButton, { ButtonState, ButtonTheme } from '../../components/ActionButton'
+import BorderedImageButton from '../../components/BorderedImageButton'
 
 export default class WelcomeScreen extends Component {
   render() {
@@ -9,28 +11,48 @@ export default class WelcomeScreen extends Component {
         <Image source={Images.Voloo} style={styles.icon} />
         <Text style={styles.title}>Hi, I'm Voloo</Text>
         <Text style={styles.subtitle}>Your wishlist assistant,{'\n'}Let's start?</Text>
-        <TouchableHighlight onPress={() => this.onAccountTapped()} style={styles.accountButton}>
-          <Text style={styles.buttonText}>CREATE ACCOUNT</Text>
-        </TouchableHighlight>
+        <ActionButton
+          onPress={() => this.onAccountTapped()}
+          title="Create account"
+          buttonState={ButtonState.Enabled}
+          theme={ButtonTheme.Light}
+          style={styles.accountButton}
+        />
         <Text style={styles.continueText}>or continue with...</Text>
         <View style={styles.socialWrapper}>
-          <TouchableHighlight style={styles.socialButton}>
-            <Image source={Images.Google} />
-          </TouchableHighlight>
-          <TouchableHighlight style={styles.socialButton}>
-            <Image source={Images.Facebook} />
-          </TouchableHighlight>
+          <BorderedImageButton
+            image={Images.Google}
+            style={styles.socialButton}
+            onPress={() => this.onGoogleTapped()}
+          />
+          <BorderedImageButton
+            image={Images.Facebook}
+            style={styles.socialButton}
+            onPress={() => this.onFacebookTapped()}
+          />
         </View>
         <Text style={styles.loginText}>Already have an account?</Text>
-        <TouchableHighlight onPress={() => this.onLoginTapped()} style={styles.loginButton}>
-          <Text style={styles.buttonText}>LOGIN</Text>
-        </TouchableHighlight>
+        <ActionButton
+          onPress={() => this.onLoginTapped()}
+          title="Login"
+          buttonState={ButtonState.Enabled}
+          theme={ButtonTheme.Dark}
+          style={styles.loginButton}
+        />
       </View>
     )
   }
 
   onAccountTapped() {
     console.log('Create account')
+  }
+
+  onGoogleTapped() {
+    console.log('Continue with Google')
+  }
+
+  onFacebookTapped() {
+    console.log('Continue with Facebook')
   }
 
   onLoginTapped() {
@@ -41,6 +63,7 @@ export default class WelcomeScreen extends Component {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+    backgroundColor: '#ffffff',
   },
   icon: {
     marginTop: 48,
@@ -63,15 +86,6 @@ const styles = StyleSheet.create({
     marginTop: 60,
     marginLeft: 24,
     marginRight: 24,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: '#ef6c00',
-    padding: 6,
-  },
-  buttonText: {
-    fontSize: 16,
-    color: '#fff',
-    textAlign: 'center',
   },
   continueText: {
     marginTop: 16,
@@ -89,13 +103,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   socialButton: {
-    height: 36,
     flex: 0.48,
-    borderRadius: 18,
-    borderWidth: 1,
-    borderColor: '#d3d3d3',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   loginText: {
     fontSize: 16,
@@ -108,9 +116,5 @@ const styles = StyleSheet.create({
     bottom: 24,
     marginLeft: 24,
     marginRight: 24,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: '#212121',
-    padding: 6,
   },
 })
