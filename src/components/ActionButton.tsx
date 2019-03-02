@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { TouchableOpacity, Text, StyleSheet, ViewProps, ActivityIndicator } from 'react-native'
-import { Colors } from '../constants'
+import Colors from '../resources/colors'
 
 export enum ButtonState {
   Enabled,

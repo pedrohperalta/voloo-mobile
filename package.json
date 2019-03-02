@@ -12,11 +12,14 @@
   },
   "dependencies": {
     "react": "16.6.3",
-    "react-native": "0.58.5"
+    "react-native": "0.58.5",
+    "react-native-gesture-handler": "^1.0.17",
+    "react-navigation": "^3.3.2"
   },
   "devDependencies": {
     "@types/react": "^16.8.4",
     "@types/react-native": "^0.57.38",
+    "@types/react-navigation": "^3.0.4",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "24.1.0",
     "jest": "24.1.0",

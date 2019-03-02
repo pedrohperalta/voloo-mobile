@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
-import { Images, Colors } from '../../constants'
+import Images from '../../resources/images'
+import Colors from '../../resources/colors'
+import Screens from '../../resources/screens'
 import ActionButton, { ButtonState, ButtonTheme } from '../../components/ActionButton'
 import BorderedImageButton from '../../components/BorderedImageButton'
+import { NavigationScreenProps } from 'react-navigation'
 
-export default class WelcomeScreen extends Component {
+interface Props extends NavigationScreenProps {}
+
+export default class WelcomeScreen extends Component<Props> {
   render() {
     return (
       <View style={styles.wrapper}>
@@ -44,7 +49,7 @@ export default class WelcomeScreen extends Component {
   }
 
   onAccountTapped() {
-    console.log('Create account')
+    this.props.navigation.navigate(Screens.NameInput)
   }
 
   onGoogleTapped() {

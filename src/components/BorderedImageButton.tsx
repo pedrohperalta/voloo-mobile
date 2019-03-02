@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { TouchableOpacity, Image, StyleSheet, ViewProps } from 'react-native'
-import { Images, Colors } from '../constants'
+import Colors from '../resources/colors'
+import Images from '../resources/images'
 
 interface Props extends ViewProps {
   image: Images

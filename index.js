@@ -1,5 +1,5 @@
 import { AppRegistry } from 'react-native'
 import { name as appName } from './app.json'
-import WelcomeScreen from './src/features/auth/WelcomeScreen'
+import AppNavigator from './src/AppNavigator'
 
-AppRegistry.registerComponent(appName, () => WelcomeScreen)
+AppRegistry.registerComponent(appName, () => AppNavigator)
