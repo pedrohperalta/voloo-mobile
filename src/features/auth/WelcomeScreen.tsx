@@ -6,6 +6,7 @@ import Screens from '../../resources/screens'
 import ActionButton, { ButtonState, ButtonTheme } from '../../components/ActionButton'
 import BorderedImageButton from '../../components/BorderedImageButton'
 import { NavigationScreenProps } from 'react-navigation'
+import Space from '../../components/Space'
 
 interface Props extends NavigationScreenProps {}
 
@@ -16,6 +17,7 @@ export default class WelcomeScreen extends Component<Props> {
         <Image source={Images.Voloo} style={styles.icon} />
         <Text style={styles.title}>Hi, I'm Voloo</Text>
         <Text style={styles.subtitle}>Your wishlist assistant,{'\n'}Let's start?</Text>
+        <Space />
         <ActionButton
           onPress={() => this.onAccountTapped()}
           title="Create account"
@@ -36,6 +38,7 @@ export default class WelcomeScreen extends Component<Props> {
             onPress={() => this.onFacebookTapped()}
           />
         </View>
+        <Space />
         <Text style={styles.loginText}>Already have an account?</Text>
         <ActionButton
           onPress={() => this.onLoginTapped()}
@@ -88,7 +91,6 @@ const styles = StyleSheet.create({
     color: Colors.MineShaft,
   },
   accountButton: {
-    marginTop: 60,
     marginLeft: 24,
     marginRight: 24,
   },
@@ -112,14 +114,10 @@ const styles = StyleSheet.create({
   },
   loginText: {
     fontSize: 16,
-    bottom: 42,
-    textAlign: 'center',
-    textAlignVertical: 'center',
+    alignSelf: 'center',
     color: Colors.MineShaft,
   },
   loginButton: {
-    bottom: 24,
-    marginLeft: 24,
-    marginRight: 24,
+    margin: 24,
   },
 })

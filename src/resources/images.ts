@@ -9,6 +9,7 @@ enum Images {
   VolooLogin = require(`${path}/voloo-login.png`),
   ForgotPassword = require(`${path}/forgot-password.png`),
   EmailSent = require(`${path}/email-sent.png`),
+  Warning = require(`${path}/warning.png`),
 }
 
 export default Images
