@@ -7,6 +7,7 @@ import ActionButton, { ButtonState, ButtonTheme } from '../../components/ActionB
 import BorderedImageButton from '../../components/BorderedImageButton'
 import { NavigationScreenProps } from 'react-navigation'
 import Space from '../../components/Space'
+import { Strings } from '../../resources/strings'
 
 interface Props extends NavigationScreenProps {}
 
@@ -15,17 +16,17 @@ export default class WelcomeScreen extends Component<Props> {
     return (
       <View style={styles.wrapper}>
         <Image source={Images.Voloo} style={styles.icon} />
-        <Text style={styles.title}>Hi, I'm Voloo</Text>
-        <Text style={styles.subtitle}>Your wishlist assistant,{'\n'}Let's start?</Text>
+        <Text style={styles.title}>{Strings.Welcome_Hi}</Text>
+        <Text style={styles.subtitle}>{Strings.Welcome_GetStarted}</Text>
         <Space />
         <ActionButton
           onPress={() => this.onAccountTapped()}
-          title="Create account"
+          title={Strings.Welcome_CreateAccount}
           buttonState={ButtonState.Enabled}
           theme={ButtonTheme.Light}
           style={styles.accountButton}
         />
-        <Text style={styles.continueText}>or continue with...</Text>
+        <Text style={styles.continueText}>{Strings.Welcome_ContinueWith}</Text>
         <View style={styles.socialWrapper}>
           <BorderedImageButton
             image={Images.Google}
@@ -39,10 +40,10 @@ export default class WelcomeScreen extends Component<Props> {
           />
         </View>
         <Space />
-        <Text style={styles.loginText}>Already have an account?</Text>
+        <Text style={styles.loginText}>{Strings.Welcome_AlreadyHaveAnAccount}</Text>
         <ActionButton
           onPress={() => this.onLoginTapped()}
-          title="Login"
+          title={Strings.Welcome_Login}
           buttonState={ButtonState.Enabled}
           theme={ButtonTheme.Dark}
           style={styles.loginButton}

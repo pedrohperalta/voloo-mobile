@@ -1,23 +1,25 @@
+import { Strings } from '../resources/strings'
+
 export class InvalidFirstName extends Error {
   constructor() {
-    super('First name should have at least 2 characters. ')
+    super(Strings.Error_InvalidFirstName)
   }
 }
 
 export class InvalidLastName extends Error {
   constructor() {
-    super('Last name should have at least 2 characters')
+    super(Strings.Error_InvalidLastName)
   }
 }
 
 export class InvalidEmail extends Error {
   constructor() {
-    super('Invalid email')
+    super(Strings.Error_InvalidEmail)
   }
 }
 
-export class InvalidPassword extends Error {
+export class ShortPassword extends Error {
   constructor() {
-    super('Password should have at least 8 digits')
+    super(Strings.Error_ShortPassword)
   }
 }

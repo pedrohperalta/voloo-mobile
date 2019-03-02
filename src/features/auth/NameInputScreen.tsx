@@ -8,6 +8,7 @@ import { NavigationScreenProps } from 'react-navigation'
 import SignUpState from './SignUpState'
 import { InvalidFirstName, InvalidLastName } from '../../errors/errors'
 import ErrorText from '../../components/ErrorText'
+import { Strings } from '../../resources/strings'
 
 interface Props extends NavigationScreenProps {}
 interface State extends SignUpState {}
@@ -23,22 +24,22 @@ export default class NameInputScreen extends Component<Props, State> {
       <KeyboardAvoidingView style={styles.wrapper} enabled>
         <ScrollView>
           <Image source={Images.VolooNameInput} style={styles.icon} />
-          <Text style={styles.title}>Hi there,</Text>
-          <Text style={styles.subtitle}>What's your name?</Text>
+          <Text style={styles.title}>{Strings.NameInput_Hi}</Text>
+          <Text style={styles.subtitle}>{Strings.NameInput_WhatsIsYourName}</Text>
           <View>
             {this.state.errorMessage != null && (
               <ErrorText message={this.state.errorMessage} style={styles.errorWrapper} />
             )}
           </View>
           <TextInput
-            placeholder={'First name'}
+            placeholder={Strings.NameInput_FirstName}
             autoCapitalize={'words'}
             autoCorrect={false}
             onChangeText={val => this.onChangeText('firstName', val)}
             style={styles.firstNameInput}
           />
           <TextInput
-            placeholder={'Last name'}
+            placeholder={Strings.NameInput_LastName}
             autoCapitalize={'words'}
             autoCorrect={false}
             onChangeText={val => this.onChangeText('lastName', val)}
@@ -46,7 +47,7 @@ export default class NameInputScreen extends Component<Props, State> {
           />
           <ActionButton
             onPress={() => this.onNextTapped()}
-            title="Next"
+            title={Strings.NameInput_Next}
             buttonState={ButtonState.Enabled}
             theme={ButtonTheme.Light}
             style={styles.nextButton}
