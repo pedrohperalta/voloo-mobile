@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { TouchableOpacity, Text, StyleSheet, ViewProps, ActivityIndicator } from 'react-native'
+import { Colors } from '../constants'
 
 export enum ButtonState {
   Enabled,
@@ -21,8 +22,8 @@ interface Props extends ViewProps {
 
 export default class PrimaryButton extends PureComponent<Props> {
   render() {
-    const enabledColor = this.props.theme === ButtonTheme.Light ? '#ef6c00' : '#212121'
-    const disabledColor = this.props.theme === ButtonTheme.Light ? '#ce5d00' : '#5b5b5b'
+    const enabledColor = this.props.theme === ButtonTheme.Light ? Colors.Pumpkin : Colors.MineShaft
+    const disabledColor = this.props.theme === ButtonTheme.Light ? Colors.Tenn : Colors.Scorpion
 
     var background: any
     switch (this.props.buttonState) {
@@ -38,8 +39,8 @@ export default class PrimaryButton extends PureComponent<Props> {
 
     if (this.props.buttonState === ButtonState.Loading) {
       return (
-        <TouchableOpacity style={[styles.button, background]}>
-          <ActivityIndicator size="small" color="#ffffff" />
+        <TouchableOpacity style={[styles.button, background, this.props.style]}>
+          <ActivityIndicator size="small" color={Colors.White} />
         </TouchableOpacity>
       )
     } else {
@@ -64,6 +65,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    color: '#fff',
+    color: Colors.White,
   },
 })

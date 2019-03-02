@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { TouchableOpacity, Image, StyleSheet, ViewProps } from 'react-native'
-import { Images } from '../constants'
+import { Images, Colors } from '../constants'
 
 interface Props extends ViewProps {
   image: Images
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     height: 36,
     borderRadius: 18,
     borderWidth: 1,
-    borderColor: '#d3d3d3',
+    borderColor: Colors.Alto,
     justifyContent: 'center',
     alignItems: 'center',
   },

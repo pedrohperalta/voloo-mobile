@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
-import { Images } from '../../constants'
+import { Images, Colors } from '../../constants'
 import ActionButton, { ButtonState, ButtonTheme } from '../../components/ActionButton'
 import BorderedImageButton from '../../components/BorderedImageButton'
 
@@ -63,7 +63,7 @@ export default class WelcomeScreen extends Component {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: Colors.White,
   },
   icon: {
     marginTop: 48,
@@ -73,14 +73,14 @@ const styles = StyleSheet.create({
     fontSize: 26,
     marginLeft: 32,
     marginTop: 24,
-    color: '#212121',
+    color: Colors.MineShaft,
     fontWeight: 'bold',
   },
   subtitle: {
     fontSize: 22,
     marginLeft: 32,
     marginTop: 8,
-    color: '#212121',
+    color: Colors.MineShaft,
   },
   accountButton: {
     marginTop: 60,
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     textAlignVertical: 'center',
-    color: '#212121',
+    color: Colors.MineShaft,
   },
   socialWrapper: {
     marginTop: 16,
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     bottom: 42,
     textAlign: 'center',
     textAlignVertical: 'center',
-    color: '#212121',
+    color: Colors.MineShaft,
   },
   loginButton: {
     bottom: 24,
