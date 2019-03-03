@@ -12,6 +12,12 @@ export enum Strings {
   NameInput_LastName = 'Last name',
   NameInput_Next = 'Next',
 
+  Credentials_NiceName = 'Nice name {0},',
+  Credentials_Request = 'Now I need an email and a password to create your account',
+  Credentials_Email = 'Email',
+  Credentials_Password = 'Password',
+  Credentials_Register = 'Register',
+
   Error_InvalidFirstName = 'First name should have at least 2 characters.',
   Error_InvalidLastName = 'Last name should have at least 2 characters',
   Error_InvalidEmail = 'Invalid email',

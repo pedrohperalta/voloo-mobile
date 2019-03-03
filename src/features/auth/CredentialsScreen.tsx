@@ -6,49 +6,60 @@ import Images from '../../resources/images'
 import TextInput from '../../components/TextInput'
 import { NavigationScreenProps } from 'react-navigation'
 import SignUpState from './SignUpState'
-import { InvalidFirstName, InvalidLastName } from '../../errors/errors'
+import { InvalidEmail, ShortPassword } from '../../errors/errors'
 import ErrorText from '../../components/ErrorText'
 import { Strings } from '../../resources/strings'
-import Screens from '../../resources/screens'
+import Params from '../../resources/params'
+import { String } from 'typescript-string-operations'
+import * as EmailValidator from 'email-validator'
 
 interface Props extends NavigationScreenProps {}
 interface State extends SignUpState {}
 
-export default class NameInputScreen extends Component<Props, State> {
+export default class CredentialsScreen extends Component<Props, State> {
   constructor(props: Props, state: State) {
     super(props, state)
-    this.state = { firstName: '', lastName: '' }
+    this.state = {
+      firstName: this.props.navigation.getParam(Params.FirstName),
+      lastName: this.props.navigation.getParam(Params.LastName),
+      email: '',
+      password: '',
+    }
   }
 
   render() {
     return (
       <KeyboardAvoidingView style={styles.wrapper} enabled>
         <ScrollView>
-          <Image source={Images.VolooNameInput} style={styles.icon} />
-          <Text style={styles.title}>{Strings.NameInput_Hi}</Text>
-          <Text style={styles.subtitle}>{Strings.NameInput_WhatsIsYourName}</Text>
+          <Image source={Images.VolooCredentials} style={styles.icon} />
+          <Text style={styles.title}>
+            {String.Format(Strings.Credentials_NiceName, this.state.firstName)}
+          </Text>
+          <Text style={styles.subtitle}>{Strings.Credentials_Request}</Text>
           <View>
             {this.state.errorMessage != null && (
               <ErrorText message={this.state.errorMessage} style={styles.errorWrapper} />
             )}
           </View>
           <TextInput
-            placeholder={Strings.NameInput_FirstName}
-            autoCapitalize={'words'}
+            placeholder={Strings.Credentials_Email}
+            keyboardType={'email-address'}
+            autoCapitalize={'none'}
             autoCorrect={false}
-            onChangeText={val => this.onChangeText('firstName', val)}
-            style={styles.firstNameInput}
+            onChangeText={val => this.onChangeText('email', val)}
+            style={styles.emailInput}
           />
           <TextInput
-            placeholder={Strings.NameInput_LastName}
-            autoCapitalize={'words'}
+            placeholder={Strings.Credentials_Password}
+            secureTextEntry={true}
+            autoCapitalize={'none'}
             autoCorrect={false}
-            onChangeText={val => this.onChangeText('lastName', val)}
-            style={styles.lastNameInput}
+            onChangeText={val => this.onChangeText('password', val)}
+            style={styles.passwordInput}
           />
           <ActionButton
             onPress={() => this.onNextTapped()}
-            title={Strings.NameInput_Next}
+            title={Strings.Credentials_Register}
             buttonState={ButtonState.Enabled}
             theme={ButtonTheme.Light}
             style={styles.nextButton}
@@ -63,20 +74,17 @@ export default class NameInputScreen extends Component<Props, State> {
   }
 
   onNextTapped() {
-    if (this.state.firstName !== undefined && this.state.firstName.length < 2) {
-      this.setState({ ...this.state, errorMessage: new InvalidFirstName().message })
+    if (this.state.email !== undefined && !EmailValidator.validate(this.state.email)) {
+      this.setState({ ...this.state, errorMessage: new InvalidEmail().message })
       return
     }
 
-    if (this.state.lastName !== undefined && this.state.lastName.length < 2) {
-      this.setState({ ...this.state, errorMessage: new InvalidLastName().message })
+    if (this.state.password !== undefined && this.state.password.length < 8) {
+      this.setState({ ...this.state, errorMessage: new ShortPassword().message })
       return
     }
 
-    this.props.navigation.navigate(Screens.Credentials, {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-    })
+    // Register account
   }
 }
 
@@ -107,11 +115,11 @@ const styles = StyleSheet.create({
     marginRight: 24,
     backgroundColor: Colors.Black_87,
   },
-  firstNameInput: {
+  emailInput: {
     marginLeft: 24,
     marginRight: 24,
   },
-  lastNameInput: {
+  passwordInput: {
     marginTop: 16,
     marginLeft: 24,
     marginRight: 24,
