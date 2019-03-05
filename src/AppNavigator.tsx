@@ -5,12 +5,14 @@ import './config/StatusBarConfig'
 import WelcomeScreen from './features/auth/WelcomeScreen'
 import NameInputScreen from './features/auth/NameInputScreen'
 import CredentialsScreen from './features/auth/CredentialsScreen'
+import LoginScreen from './features/auth/LoginScreen'
 
 const AppNavigator = createStackNavigator(
   {
     Welcome: WelcomeScreen,
     NameInput: NameInputScreen,
     Credentials: CredentialsScreen,
+    Login: LoginScreen,
   },
   {
     initialRouteName: Screens.Welcome,

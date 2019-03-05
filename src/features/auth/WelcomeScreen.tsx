@@ -65,7 +65,7 @@ export default class WelcomeScreen extends Component<Props> {
   }
 
   onLoginTapped() {
-    console.log('Login')
+    this.props.navigation.navigate(Screens.Login)
   }
 }
 

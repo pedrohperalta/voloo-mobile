@@ -18,6 +18,11 @@ export enum Strings {
   Credentials_Password = 'Password',
   Credentials_Register = 'Register',
 
+  Login_Title = 'Login',
+  Login_Email = 'Email',
+  Login_Password = 'Password',
+  Login_ForgotPassword = 'Forgot password?',
+
   Error_InvalidFirstName = 'First name should have at least 2 characters.',
   Error_InvalidLastName = 'Last name should have at least 2 characters',
   Error_InvalidEmail = 'Invalid email',
