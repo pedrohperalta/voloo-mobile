@@ -31,8 +31,17 @@ export enum Strings {
   EmailSent_Subtitle = 'We sent an e-mail to your e-mail adress to change your password',
   EmailSent_GoToLogin = 'Go to login',
 
+  TabMenu_WishLists = 'Wish Lists',
+  TabMenu_Account = 'Account',
+  TabMenu_Settings = 'Settings',
+
+  WishList_EmptyTitle = 'Create your first wish list',
+  WishList_EmptySubtitle = 'Tap the add button to create your wish list',
+
   Error_InvalidFirstName = 'First name should have at least 2 characters.',
   Error_InvalidLastName = 'Last name should have at least 2 characters',
   Error_InvalidEmail = 'Invalid email',
   Error_ShortPassword = 'Password should have at least 8 digits',
+
+  General_Back = 'Back',
 }

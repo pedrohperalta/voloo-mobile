@@ -10,6 +10,7 @@ enum Colors {
   BrownishGrey = '#616161',
   Black_87 = '#de000000',
   Scarlet = '#fc2847',
+  WhiteFour = '#f2f2f2',
 }
 
 export default Colors

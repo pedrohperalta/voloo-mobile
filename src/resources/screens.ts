@@ -5,6 +5,7 @@ export enum Screens {
   Login = 'Login',
   ForgotPassword = 'ForgotPassword',
   EmailSent = 'EmailSent',
+  WishList = 'WishList',
 }
 
 export default Screens

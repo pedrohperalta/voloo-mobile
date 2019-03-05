@@ -10,6 +10,11 @@ enum Images {
   ForgotPassword = require(`${path}/forgot-password.png`),
   EmailSent = require(`${path}/email-sent.png`),
   Warning = require(`${path}/warning.png`),
+  Profile = require(`${path}/profile.png`),
+  AddWish = require(`${path}/add-wish.png`),
+  MenuGift = require(`${path}/menu-gift.png`),
+  MenuAccount = require(`${path}/menu-account.png`),
+  MenuSettings = require(`${path}/menu-settings.png`),
 }
 
 export default Images
