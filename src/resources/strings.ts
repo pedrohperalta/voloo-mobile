@@ -23,6 +23,10 @@ export enum Strings {
   Login_Password = 'Password',
   Login_ForgotPassword = 'Forgot password?',
 
+  ForgotPassword_Title = 'Forgot password',
+  ForgotPassword_Email = 'Email',
+  ForgotPassword_SendEmail = 'Send verification email',
+
   Error_InvalidFirstName = 'First name should have at least 2 characters.',
   Error_InvalidLastName = 'Last name should have at least 2 characters',
   Error_InvalidEmail = 'Invalid email',

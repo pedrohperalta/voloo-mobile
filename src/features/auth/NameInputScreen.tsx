@@ -99,13 +99,13 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 22,
     marginLeft: 32,
-    marginBottom: 40,
+    marginBottom: 30,
     color: Colors.MineShaft,
   },
   errorWrapper: {
     marginLeft: 24,
     marginRight: 24,
-    backgroundColor: Colors.Black_87,
+    marginBottom: 8,
   },
   firstNameInput: {
     marginLeft: 24,
@@ -115,9 +115,6 @@ const styles = StyleSheet.create({
     marginTop: 16,
     marginLeft: 24,
     marginRight: 24,
-  },
-  space: {
-    flex: 1,
   },
   nextButton: {
     margin: 24,

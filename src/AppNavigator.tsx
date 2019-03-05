@@ -6,6 +6,7 @@ import WelcomeScreen from './features/auth/WelcomeScreen'
 import NameInputScreen from './features/auth/NameInputScreen'
 import CredentialsScreen from './features/auth/CredentialsScreen'
 import LoginScreen from './features/auth/LoginScreen'
+import ForgotPasswordScreen from './features/auth/ForgotPasswordScreen'
 
 const AppNavigator = createStackNavigator(
   {
@@ -13,6 +14,7 @@ const AppNavigator = createStackNavigator(
     NameInput: NameInputScreen,
     Credentials: CredentialsScreen,
     Login: LoginScreen,
+    ForgotPassword: ForgotPasswordScreen,
   },
   {
     initialRouteName: Screens.Welcome,

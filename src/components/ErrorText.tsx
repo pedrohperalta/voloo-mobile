@@ -11,8 +11,10 @@ export default class ErrorText extends PureComponent<Props> {
   render() {
     return (
       <View style={[styles.errorWrapper, this.props.style]}>
-        <Image source={Images.Warning} />
-        <Text style={styles.message}>{this.props.message}</Text>
+        <Text style={styles.message}>
+          <Image source={Images.Warning} />
+          {this.props.message}
+        </Text>
       </View>
     )
   }

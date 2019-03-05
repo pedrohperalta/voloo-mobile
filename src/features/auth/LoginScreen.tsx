@@ -9,6 +9,7 @@ import { InvalidEmail, ShortPassword } from '../../errors/errors'
 import ErrorText from '../../components/ErrorText'
 import { Strings } from '../../resources/strings'
 import * as EmailValidator from 'email-validator'
+import Screens from '../../resources/screens'
 
 interface Props extends NavigationScreenProps {}
 
@@ -62,7 +63,7 @@ export default class LoginScreen extends Component<Props, State> {
             style={styles.loginButton}
           />
           <Text onPress={() => this.onForgotPasswordTapped()} style={styles.forgotPassword}>
-            {Strings.Login_ForgotPassword.toLowerCase()}
+            {Strings.Login_ForgotPassword}
           </Text>
         </ScrollView>
       </KeyboardAvoidingView>
@@ -87,7 +88,9 @@ export default class LoginScreen extends Component<Props, State> {
     // Login user
   }
 
-  onForgotPasswordTapped() {}
+  onForgotPasswordTapped() {
+    this.props.navigation.navigate(Screens.ForgotPassword)
+  }
 }
 
 const styles = StyleSheet.create({
@@ -102,15 +105,16 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 26,
     marginLeft: 32,
+    marginRight: 32,
     marginTop: 16,
-    marginBottom: 64,
+    marginBottom: 40,
     color: Colors.MineShaft,
     fontWeight: 'bold',
   },
   errorWrapper: {
     marginLeft: 24,
     marginRight: 24,
-    backgroundColor: Colors.Black_87,
+    marginBottom: 8,
   },
   emailInput: {
     marginLeft: 24,
@@ -120,9 +124,6 @@ const styles = StyleSheet.create({
     marginTop: 16,
     marginLeft: 24,
     marginRight: 24,
-  },
-  space: {
-    flex: 1,
   },
   loginButton: {
     marginLeft: 24,
