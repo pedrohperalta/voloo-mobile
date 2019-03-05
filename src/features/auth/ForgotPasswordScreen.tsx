@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Image, Text, KeyboardAvoidingView, ScrollView, View } from 'react-native'
+import { StyleSheet, Image, Text, View } from 'react-native'
 import ActionButton, { ButtonState, ButtonTheme } from '../../components/ActionButton'
 import Colors from '../../resources/colors'
 import Images from '../../resources/images'
@@ -10,6 +10,7 @@ import ErrorText from '../../components/ErrorText'
 import { Strings } from '../../resources/strings'
 import * as EmailValidator from 'email-validator'
 import Space from '../../components/Space'
+import Screens from '../../resources/screens'
 
 interface Props extends NavigationScreenProps {}
 
@@ -64,7 +65,7 @@ export default class ForgotPasswordScreen extends Component<Props, State> {
       return
     }
 
-    // Login user
+    this.props.navigation.navigate(Screens.EmailSent)
   }
 }
 
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginTop: 48,
-    marginStart: 16,
+    marginStart: 24,
   },
   title: {
     fontSize: 26,

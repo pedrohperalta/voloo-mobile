@@ -27,6 +27,10 @@ export enum Strings {
   ForgotPassword_Email = 'Email',
   ForgotPassword_SendEmail = 'Send verification email',
 
+  EmailSent_Title = 'E-mail successfully sent',
+  EmailSent_Subtitle = 'We sent an e-mail to your e-mail adress to change your password',
+  EmailSent_GoToLogin = 'Go to login',
+
   Error_InvalidFirstName = 'First name should have at least 2 characters.',
   Error_InvalidLastName = 'Last name should have at least 2 characters',
   Error_InvalidEmail = 'Invalid email',
