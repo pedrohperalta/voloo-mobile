@@ -94,7 +94,7 @@ const AppNavigator = createSwitchNavigator(
     TabNavigator: TabNavigator,
   },
   {
-    initialRouteName: 'TabNavigator',
+    initialRouteName: 'AuthNavigator',
   }
 )
 

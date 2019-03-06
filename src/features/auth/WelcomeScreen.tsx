@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, SafeAreaView } from 'react-native'
 import Images from '../../resources/images'
 import Colors from '../../resources/colors'
 import Screens from '../../resources/screens'
@@ -14,7 +14,7 @@ interface Props extends NavigationScreenProps {}
 export default class WelcomeScreen extends Component<Props> {
   render() {
     return (
-      <View style={styles.wrapper}>
+      <SafeAreaView style={styles.wrapper}>
         <Image source={Images.Voloo} style={styles.icon} />
         <Text style={styles.title}>{Strings.Welcome_Hi}</Text>
         <Text style={styles.subtitle}>{Strings.Welcome_GetStarted}</Text>
@@ -48,7 +48,7 @@ export default class WelcomeScreen extends Component<Props> {
           theme={ButtonTheme.Dark}
           style={styles.loginButton}
         />
-      </View>
+      </SafeAreaView>
     )
   }
 

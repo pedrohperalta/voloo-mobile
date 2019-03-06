@@ -1,5 +1,13 @@
 import React, { Component } from 'react'
-import { StyleSheet, Image, Text, KeyboardAvoidingView, ScrollView, View } from 'react-native'
+import {
+  StyleSheet,
+  Image,
+  Text,
+  KeyboardAvoidingView,
+  ScrollView,
+  View,
+  SafeAreaView,
+} from 'react-native'
 import ActionButton, { ButtonState, ButtonTheme } from '../../components/ActionButton'
 import Colors from '../../resources/colors'
 import Images from '../../resources/images'
@@ -23,37 +31,39 @@ export default class NameInputScreen extends Component<Props, State> {
   render() {
     return (
       <KeyboardAvoidingView style={styles.wrapper} enabled>
-        <ScrollView>
-          <Image source={Images.VolooNameInput} style={styles.icon} />
-          <Text style={styles.title}>{Strings.NameInput_Hi}</Text>
-          <Text style={styles.subtitle}>{Strings.NameInput_WhatsIsYourName}</Text>
-          <View>
-            {this.state.errorMessage != null && (
-              <ErrorText message={this.state.errorMessage} style={styles.errorWrapper} />
-            )}
-          </View>
-          <TextInput
-            placeholder={Strings.NameInput_FirstName}
-            autoCapitalize={'words'}
-            autoCorrect={false}
-            onChangeText={val => this.onChangeText('firstName', val)}
-            style={styles.firstNameInput}
-          />
-          <TextInput
-            placeholder={Strings.NameInput_LastName}
-            autoCapitalize={'words'}
-            autoCorrect={false}
-            onChangeText={val => this.onChangeText('lastName', val)}
-            style={styles.lastNameInput}
-          />
-          <ActionButton
-            onPress={() => this.onNextTapped()}
-            title={Strings.NameInput_Next}
-            buttonState={ButtonState.Enabled}
-            theme={ButtonTheme.Light}
-            style={styles.nextButton}
-          />
-        </ScrollView>
+        <SafeAreaView style={{ flex: 1 }}>
+          <ScrollView>
+            <Image source={Images.VolooNameInput} style={styles.icon} />
+            <Text style={styles.title}>{Strings.NameInput_Hi}</Text>
+            <Text style={styles.subtitle}>{Strings.NameInput_WhatsIsYourName}</Text>
+            <View>
+              {this.state.errorMessage != null && (
+                <ErrorText message={this.state.errorMessage} style={styles.errorWrapper} />
+              )}
+            </View>
+            <TextInput
+              placeholder={Strings.NameInput_FirstName}
+              autoCapitalize={'words'}
+              autoCorrect={false}
+              onChangeText={val => this.onChangeText('firstName', val)}
+              style={styles.firstNameInput}
+            />
+            <TextInput
+              placeholder={Strings.NameInput_LastName}
+              autoCapitalize={'words'}
+              autoCorrect={false}
+              onChangeText={val => this.onChangeText('lastName', val)}
+              style={styles.lastNameInput}
+            />
+            <ActionButton
+              onPress={() => this.onNextTapped()}
+              title={Strings.NameInput_Next}
+              buttonState={ButtonState.Enabled}
+              theme={ButtonTheme.Light}
+              style={styles.nextButton}
+            />
+          </ScrollView>
+        </SafeAreaView>
       </KeyboardAvoidingView>
     )
   }
@@ -99,6 +109,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 22,
     marginLeft: 32,
+    marginRight: 32,
     marginBottom: 30,
     color: Colors.MineShaft,
   },
