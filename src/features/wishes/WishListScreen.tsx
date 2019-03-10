@@ -1,46 +1,117 @@
 import React, { Component } from 'react'
-import { View, Image, StyleSheet, Text } from 'react-native'
-import Images from '../../resources/images'
-import Colors from '../../resources/colors'
+import { SafeAreaView, FlatList, View } from 'react-native'
 import { NavigationScreenProps } from 'react-navigation'
-import { Strings } from '../../resources/strings'
+import WishCard from '../../components/WishCard'
+import EmptyWishListScreen from './EmptyWishListScreen'
+import WishList from '../../models/WishList'
 
 interface Props extends NavigationScreenProps {}
 
-export default class WishListScreen extends Component<Props> {
-  render() {
-    return (
-      <View style={styles.wrapper}>
-        <Image source={Images.AddWish} style={styles.backgroundImage} />
-        <Text style={styles.title}>{Strings.WishList_EmptyTitle}</Text>
-        <Text style={styles.subtitle}>{Strings.WishList_EmptySubtitle}</Text>
-      </View>
-    )
-  }
+interface State {
+  wishLists: WishList[]
 }
 
-const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    backgroundColor: Colors.WhiteFour,
-    justifyContent: 'center',
-  },
-  backgroundImage: {
-    alignSelf: 'center',
-  },
-  title: {
-    fontSize: 26,
-    fontWeight: 'bold',
-    color: Colors.MineShaft,
-    alignSelf: 'center',
-    marginTop: 16,
-  },
-  subtitle: {
-    fontSize: 22,
-    color: Colors.MineShaft,
-    textAlign: 'center',
-    marginTop: 8,
-    marginLeft: 24,
-    marginRight: 24,
-  },
-})
+export default class WishListScreen extends Component<Props, State> {
+  data = [
+    {
+      id: 'f354y43h5hhrhhq5',
+      title: 'Meu aniversário',
+      quantity: 12,
+      visibility: 'Public',
+      category: 'birthday',
+    },
+    {
+      id: 'f432y34yq344yh34',
+      title: 'Gadgets para comprar',
+      quantity: 23,
+      visibility: 'Public',
+      category: 'electronics',
+    },
+    {
+      id: '6784645f432fgsdf',
+      title: 'Projeto verão',
+      quantity: 4,
+      visibility: 'Private',
+      category: 'sports',
+    },
+    {
+      id: '82br89fd23bfdbr6',
+      title: 'Casamento João e Maria',
+      quantity: 67,
+      visibility: 'Public',
+      category: 'wedding',
+    },
+    {
+      id: '823nd98f2f3f2gh5',
+      title: 'Roupas de verão',
+      quantity: 67,
+      visibility: 'Public',
+      category: 'clothing',
+    },
+    {
+      id: 'c8321r1oirf23f2w',
+      title: 'Games para comprar',
+      quantity: 23,
+      visibility: 'Public',
+      category: 'games',
+    },
+    {
+      id: '9321r727r23if2hf',
+      title: 'Sonhos de viagens',
+      quantity: 23,
+      visibility: 'Public',
+      category: 'trip',
+    },
+    {
+      id: '021dpmopwef32g2q',
+      title: 'Brinquedos',
+      quantity: 23,
+      visibility: 'Public',
+      category: 'toys',
+    },
+    {
+      id: '09d21odf9iffwefg',
+      title: 'Próximos livros',
+      quantity: 23,
+      visibility: 'Public',
+      category: 'books',
+    },
+    {
+      id: 'd210di23jdioajlk',
+      title: 'Outros',
+      quantity: 23,
+      visibility: 'Public',
+      category: 'others',
+    },
+  ]
+
+  constructor(props: Props, state: State) {
+    super(props, state)
+    const wishLists = this.data.map(any => new WishList(any))
+    this.state = { wishLists }
+  }
+
+  render() {
+    const component =
+      this.state.wishLists.length === 0 ? (
+        <EmptyWishListScreen />
+      ) : (
+        <FlatList<WishList>
+          data={this.state.wishLists}
+          keyExtractor={wishList => wishList.id}
+          renderItem={this.renderItem}
+          ItemSeparatorComponent={this.renderSeparator}
+        />
+      )
+
+    return <SafeAreaView style={{ flex: 1 }}>{component}</SafeAreaView>
+  }
+
+  renderItem({ item }: { item: WishList }) {
+    return <WishCard wishList={item} />
+  }
+
+  renderSeparator() {
+    return <View style={{ height: 12 }} />
+  }
+}

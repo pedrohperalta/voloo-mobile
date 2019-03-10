@@ -14,6 +14,16 @@ enum Images {
   MenuGift = require(`${path}/menu-gift.png`),
   MenuAccount = require(`${path}/menu-account.png`),
   MenuSettings = require(`${path}/menu-settings.png`),
+  Birthday = require(`${path}/birthday.png`),
+  Electronics = require(`${path}/electronics.png`),
+  Sports = require(`${path}/sports.png`),
+  Wedding = require(`${path}/wedding.png`),
+  Clothing = require(`${path}/clothing.png`),
+  Games = require(`${path}/games.png`),
+  Trip = require(`${path}/trip.png`),
+  Toys = require(`${path}/toys.png`),
+  Books = require(`${path}/books.png`),
+  Others = require(`${path}/others.png`),
 }
 
 export default Images
